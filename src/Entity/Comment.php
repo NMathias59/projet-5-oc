@@ -2,11 +2,15 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CommentRepository::class)
+ * @ApiResource(normalizationContext={"groups"={"Comment_read"}})
  */
 class Comment
 {
@@ -14,31 +18,41 @@ class Comment
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"Comment_read", "Post_read"})
      */
     private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="comments")
+     * @Groups({"Comment_read"})
+     *
      */
     private $post;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comments")
+     * @Groups({"Comment_read","User_read", "Post_read"})
      */
     private $user;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"Comment_read", "Post_read"})
+     * @Assert\NotBlank(message="Veuillez ecrire votre commentaire")
      */
     private $content;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"Comment_read", "Post_read"})
+     * @Assert\NotBlank(message="renseignez la date")
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"Comment_read"})
+     * @Assert\NotBlank(message="!!!report ? !!!")
      */
     private $repport;
 

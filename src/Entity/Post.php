@@ -2,13 +2,20 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PostRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
+ * @ApiResource(
+ *     normalizationContext={"groups"={"Post_read"}},
+ *     attributes={"order": {"createdAt":"DESC"}}
+ *     )
  */
 class Post
 {
@@ -16,37 +23,50 @@ class Post
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"Post_read", "Comment_read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"Post_read", "Comment_read"})
+     * @Assert\NotBlank(message="Veuillez renseigner un titre a votre article")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"Post_read"})
+     * @Assert\NotBlank(message="Veuillez ecrire votre article")
      */
     private $content;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"Post_read"})
+     * @Assert\NotBlank(message="Veuillez renseigner une date")
+     * @var string A "yyyy-mm-dd" formatted value
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"Post_read"})
+     *
      */
     private $category;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"Post_read", "User_read"})
+     * @Assert\NotBlank(message="veuillez renseignez un autheur")
      */
     private $author;
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="post")
+     * @Groups({"Post_read"})
      */
     private $comments;
 
