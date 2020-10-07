@@ -27,20 +27,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81c721f1-b075-4b70-9a46-391b394b56cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/components/Footer.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/components/Header.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/components/Navbar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/components/PostHomePage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/home-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/pages/HomePage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/pages/PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/Comment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Comment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/PostPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +200,7 @@
       <updated>1599051800569</updated>
       <workItem from="1599051801682" duration="10734000" />
       <workItem from="1602067245801" duration="15446000" />
-      <workItem from="1602092013156" duration="4234000" />
+      <workItem from="1602092013156" duration="8505000" />
     </task>
     <servers />
   </component>
@@ -241,13 +232,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="3209" y="340" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599077171909">
-      <screen x="2560" y="0" width="1920" height="1080" />
+    <state x="649" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602096579520">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="649" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602096579520" />
     <state x="3209" y="340" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1080/2560.0.1920.1080@2560.0.1920.1080" timestamp="1599077171909" />
     <state x="540" y="255" key="IDE.errors.dialog" timestamp="1602084550045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="255" key="IDE.errors.dialog/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602084550045" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602097236395">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602097236395" />
   </component>
 </project>

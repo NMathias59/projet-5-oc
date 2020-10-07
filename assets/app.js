@@ -31,6 +31,7 @@ const App = () => {
             <Switch>
 
                 <Route path="/post/:id" component={PostPage}/>
+                <Route path="/post" component={PostPage}/>
                 <Route path="/" component={HomePage}/>
             </Switch>
             <Footer/>
