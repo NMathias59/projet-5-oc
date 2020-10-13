@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {Fragment, useContext} from 'react';
 import {NavLink} from "react-router-dom";
+import AuthAPI from "../services/AuthAPI";
+import AuthContext from "../contexts/AuthContext";
 
-const Navbar = () => {
+const Navbar = ({history}) => {
+
+    const {isAuthenticated, setIsAuthenticated} = useContext(
+        AuthContext
+    )
+
+    const handleLogout = () => {
+        AuthAPI.logout();
+        onLogout(false);
+        history.push("/#")
+    }
+
+
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" >
+            <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
                 <div className="container">
                     <a className="navbar-brand" href="index.html">Start Bootstrap</a>
                     <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -22,11 +36,28 @@ const Navbar = () => {
                                 <NavLink className="nav-link" to="/">Accueil</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/posts">Tous les articles</NavLink>
+                                <NavLink className="nav-link" to="/listePosts">Tous les articles</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/">A propos </NavLink>
-                            </li>
+
+                            {(!isAuthenticated && (
+                                <Fragment>
+                                    <li className="nav-item">
+                                        <NavLink className="nav-link btn btn-primary" to="/login">Admin login</NavLink>
+                                    </li>
+
+                                </Fragment>
+                            )) || (
+                                <Fragment>
+                                    <li className="nav-item">
+                                        <NavLink className="nav-link" to="/admin">Administration </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <button onClick={handleLogout} className="btn btn-danger">logout</button>
+                                    </li>
+                                </Fragment>
+                            )}
+
+
                         </ul>
                     </div>
                 </div>

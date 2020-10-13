@@ -27,11 +27,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81c721f1-b075-4b70-9a46-391b394b56cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/components/NavabarAdmin.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/components/PostListPosts.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/components/PrivateRoute.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/components/form/Field.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/contexts/AuthContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pages/AdminListComments.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pages/AdminListPosts.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pages/AdminListUsers.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pages/AdminUpdatePostPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pages/ListePosts.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pages/LoginPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/pages/NewPost.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/services/AuthAPI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/projet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projet.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/Comment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Comment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/PostPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/PostHomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/PostHomePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/test/web_profiler.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes/dev/web_profiler.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +103,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/intl" />
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
@@ -135,8 +155,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/form" />
-      <path value="$PROJECT_DIR$/vendor/zendframework/zend-eventmanager" />
-      <path value="$PROJECT_DIR$/vendor/zendframework/zend-code" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/common" />
       <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
@@ -161,6 +179,10 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/vendor/namshi/jose" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/vendor/webimpress/safe-writer" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gxMToYiz544jCUclVwqHqQ86dI" />
@@ -171,7 +193,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/styles" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/config" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -182,12 +204,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\BBBOU\Sites\projet-5-oc\config" />
+      <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets\components" />
+      <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets" />
+      <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets\pages" />
+      <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets\styles" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\BBBOU\Sites\projet-5-oc" />
       <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets" />
       <recent name="C:\Users\BBBOU\Sites\projet-5-oc\public\img" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets\styles" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -201,6 +228,8 @@
       <workItem from="1599051801682" duration="10734000" />
       <workItem from="1602067245801" duration="15446000" />
       <workItem from="1602092013156" duration="8505000" />
+      <workItem from="1602590811580" duration="795000" />
+      <workItem from="1602591711762" duration="16726000" />
     </task>
     <servers />
   </component>
@@ -237,13 +266,21 @@
     </state>
     <state x="649" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602096579520" />
     <state x="3209" y="340" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1080/2560.0.1920.1080@2560.0.1920.1080" timestamp="1599077171909" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602590880874">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602590880874" />
     <state x="540" y="255" key="IDE.errors.dialog" timestamp="1602084550045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="255" key="IDE.errors.dialog/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602084550045" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602097236395">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1602595821209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602097236395" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602595821209" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602613682144">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602613682144" />
   </component>
 </project>
