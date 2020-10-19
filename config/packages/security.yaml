@@ -48,8 +48,7 @@ security:
   # Easy way to control access for large sections of your site
   # Note: Only the *first* access control that matches will be used
   access_control:
-    - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/api/post, roles: IS_AUTHENTICATED_ANONYMOUSLY, method: [GET] }
-    - { path: ^/api/post, roles: IS_AUTHENTICATED_ADMIN, method: [GET, POST, PUT, DELTE] }
+
+    - { path: ^/api/post, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/api/comments, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/api/users, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET, POST, DELETE] }
+    - { path: ^/api/users, roles: IS_AUTHENTICATED_ANONYMOUSLY}

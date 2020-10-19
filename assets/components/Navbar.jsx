@@ -20,7 +20,7 @@ const Navbar = ({history}) => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
                 <div className="container">
-                    <a className="navbar-brand" href="index.html">Start Bootstrap</a>
+                    <a className="navbar-brand" href="index.html">Mon Blog actu</a>
                     <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -42,7 +42,7 @@ const Navbar = ({history}) => {
                             {(!isAuthenticated && (
                                 <Fragment>
                                     <li className="nav-item">
-                                        <NavLink className="nav-link btn btn-primary" to="/login">Admin login</NavLink>
+                                        <NavLink className="nav-link btn btn-primary" to="/login">Login</NavLink>
                                     </li>
 
                                 </Fragment>
@@ -52,11 +52,13 @@ const Navbar = ({history}) => {
                                         <NavLink className="nav-link" to="/admin">Administration </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <button onClick={handleLogout} className="btn btn-danger">logout</button>
+                                        <button onClick={handleLogout} className="btn btn-danger">Logout</button>
                                     </li>
                                 </Fragment>
                             )}
-
+                            <li className="nav-item">
+                                <NavLink className="nav-link btn btn-info" to="/signin">Sign in</NavLink>
+                            </li>
 
                         </ul>
                     </div>

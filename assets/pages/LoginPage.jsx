@@ -7,7 +7,7 @@ import AuthContext from "../contexts/AuthContext";
 
 const LoginPage = ( {history}) => {
 
-    const { setIsAthenticated } = useContext(AuthContext)
+    const { setIsAuthenticated } = useContext(AuthContext)
 
     const [credentials, setCredentials] = useState({
         username: "",

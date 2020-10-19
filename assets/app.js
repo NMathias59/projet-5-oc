@@ -25,6 +25,7 @@ import LoginPage from "./pages/LoginPage";
 import PrivateRoute from "./components/PrivateRoute";
 import AuthAPI from "./services/AuthAPI";
 import AuthContext from "./contexts/AuthContext";
+import SignInPage from "./pages/SignInPage";
 
 
 require("./styles/app.css")
@@ -59,6 +60,7 @@ const App = () => {
                         <Route path="/post" component={PostPage}/>
                         <Route path="/listePosts" component={ListePosts}/>
                         <PrivateRoute path="/admin"  component={AdminListPosts}/>
+                        <Route path="/signin" component={SignInPage}/>
                         <Route path="/login" component={LoginPage}/>
                         <Route path="/" component={HomePage}/>
                     </Switch>

@@ -4,16 +4,20 @@ import {Link} from "react-router-dom";
 import Field from "../components/form/Field";
 import Axios from "axios";
 
-const NewPost = () => {
+const NewPost = (props) => {
 
     const [post,setPost] = useState({
         title: "",
-        content: ""
+        content: "",
+        createdAt:"",
+        category:""
 });
 
     const [errors, setErrors] = useState({
         title: "",
-        content: ""
+        content: "",
+        createdAt:"",
+        category:""
     })
 
 
@@ -26,7 +30,8 @@ const NewPost = () => {
         event.preventDefault();
         try {
            const response = await Axios.post("http://127.0.0.1:8000/api/posts",  post)
-            console.log(response.data)
+            props.history.replace("/admin")
+
         }catch (error){
             console.log(error.response)
         }
@@ -52,6 +57,22 @@ const NewPost = () => {
                                onChange={handleChange}
                                error={errors.content}
                         />
+
+                        <Field name="createdAt"
+                               label="Date"
+                               placeholder="Date"
+                               value={post.createdAt}
+                               onChange={handleChange}
+                               error={errors.createdAt}
+                        />
+                        <Field name="category"
+                               label="Categorie"
+                               placeholder="Categories"
+                               value={post.category}
+                               onChange={handleChange}
+                               error={errors.category}
+                        />
+
                         <div className="form-group ">
                             <button type="submit" className="btn btn-success">Eregistrer</button>
                             <Link to="/admin" className="btn">Retour a la liste des articles</Link>

@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import Axios from "axios";
 import { Button } from "@chakra-ui/core";
 import { Icon } from "@chakra-ui/core";
+import Field from "../components/form/Field";
+import {Link} from "react-router-dom";
 
 const PostPage = (props) => {
 
@@ -11,7 +13,6 @@ const PostPage = (props) => {
     console.log(id)
 
     const [post, setPost] = useState([])
-
     const [comments, setComment] = useState([])
 
     const fetchPost = async id => {
@@ -50,11 +51,16 @@ const PostPage = (props) => {
                     <div className="card my-4">
                         <h5 className="card-header">Poster un commentaire:</h5>
                         <div className="card-body">
-                            <form>
-                                <div className="form-group">
-                                    <textarea className="form-control" rows="3"></textarea>
+                            <form >
+                                <Field
+                                    name="title"
+                                    placeholder="votre commentaire"
+                                />
+
+                                <div className="form-group ">
+                                    <button type="submit" className="btn btn-success">Eregistrer</button>
+                                    <Link to="/admin" className="btn">Retour a la liste des articles</Link>
                                 </div>
-                                <button type="submit" className="btn btn-primary">Poster</button>
                             </form>
                         </div>
                     </div>
