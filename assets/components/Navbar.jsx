@@ -20,7 +20,7 @@ const Navbar = ({history}) => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
                 <div className="container">
-                    <a className="navbar-brand" href="index.html">Mon Blog actu</a>
+                    <NavLink className="nav-item btn" to="/#">Mon Blog actu</NavLink>
                     <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -29,9 +29,6 @@ const Navbar = ({history}) => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                         <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-
-                            </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/">Accueil</NavLink>
                             </li>
@@ -45,6 +42,9 @@ const Navbar = ({history}) => {
                                         <NavLink className="nav-link btn btn-primary" to="/login">Login</NavLink>
                                     </li>
 
+                                    <li className="nav-item">
+                                        <NavLink className="nav-link btn btn-info" to="/signin">Sign in</NavLink>
+                                    </li>
                                 </Fragment>
                             )) || (
                                 <Fragment>
@@ -56,9 +56,7 @@ const Navbar = ({history}) => {
                                     </li>
                                 </Fragment>
                             )}
-                            <li className="nav-item">
-                                <NavLink className="nav-link btn btn-info" to="/signin">Sign in</NavLink>
-                            </li>
+
 
                         </ul>
                     </div>

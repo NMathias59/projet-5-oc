@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PostRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -45,7 +46,7 @@ class Post
      * @ORM\Column(type="datetime")
      * @Groups({"Post_read"})
      * @Assert\NotBlank(message="Veuillez renseigner une date")
-     * @var string A "yyyy-mm-dd" formatted value
+     * @var DateTime
      */
     private $createdAt;
 
@@ -73,6 +74,7 @@ class Post
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->createdAt = new DateTime();
     }
 
     public function getId(): ?int

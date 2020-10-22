@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CommentRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -46,6 +47,7 @@ class Comment
      * @ORM\Column(type="datetime")
      * @Groups({"Comment_read", "Post_read"})
      * @Assert\NotBlank(message="renseignez la date")
+     * @var DateTime
      */
     private $createdAt;
 
@@ -55,6 +57,10 @@ class Comment
      * @Assert\NotBlank(message="!!!report ? !!!")
      */
     private $repport;
+
+    public function __construct(){
+        $this->createdAt = new DateTime();
+    }
 
     public function getId(): ?int
     {

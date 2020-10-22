@@ -27,16 +27,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81c721f1-b075-4b70-9a46-391b394b56cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/pages/SignInPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Events/PostUsersSubscriber.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Events/CommentUserPost.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Events/PasswordEncoderSubscriber.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Footer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/contexts/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/contexts/AuthContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/pages/AdminUpdatePostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/AdminUpdatePostPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/LoginPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/NewPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/NewPost.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/pages/PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/PostPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +218,9 @@
       <workItem from="1602591711762" duration="16726000" />
       <workItem from="1602684936074" duration="6577000" />
       <workItem from="1602942597101" duration="521000" />
-      <workItem from="1603101515144" duration="9357000" />
+      <workItem from="1603101515144" duration="19050000" />
+      <workItem from="1603299246561" duration="2327000" />
+      <workItem from="1603356444815" duration="1728000" />
     </task>
     <servers />
   </component>
@@ -270,9 +273,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602595821209" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602689093101">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603300173660">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602689093101" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603300173660" />
   </component>
 </project>

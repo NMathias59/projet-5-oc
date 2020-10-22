@@ -46,8 +46,7 @@ const AdminUpdatePostPage = (props) => {
     }
 
     const handleSubmit = async event => {
-        event.preventDefault()
-
+        event.preventDefault();
         try {
             const response = await Axios.put(
                 "http://127.0.0.1:8000/api/posts/" + id, post)

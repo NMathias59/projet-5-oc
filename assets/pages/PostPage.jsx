@@ -1,19 +1,30 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import Header from "../components/Header";
 import Axios from "axios";
-import { Button } from "@chakra-ui/core";
-import { Icon } from "@chakra-ui/core";
 import Field from "../components/form/Field";
-import {Link} from "react-router-dom";
+
 
 const PostPage = (props) => {
 
     const {id} = props.match.params
 
+    const formatDate = (str) => moment(str).format('DD/MM/YYYY');
+
     console.log(id)
 
     const [post, setPost] = useState([])
-    const [comments, setComment] = useState([])
+    const [comments, setComments] = useState([
+
+    ])
+    const [comment, setComment] = useState({
+        "content": "",
+        "createdAt": "",
+        "repport": true
+    })
+
+    const [errors, setErrors] = useState({
+        "content": ""
+    })
 
     const fetchPost = async id => {
         try {
@@ -21,19 +32,35 @@ const PostPage = (props) => {
                 .get("http://127.0.0.1:8000/api/posts/" + id)
                 .then(response => response.data);
             console.log(data)
-            const {author, content, createdAt, title } = data;
+            const {author, content, createdAt, title} = data;
             const {comments} = data
             setPost({author, content, createdAt, title});
-            setComment(comments);
+            setComments(comments);
         } catch (error) {
             console.log(error.response)
         }
-
     }
+
+    const handleChange = (event) => {
+        const value = event.currentTarget.value;
+        const name = event.currentTarget.name;
+        setComment({...comment, [name]: value});
+    }
+
+    const handleSubmit= async event =>{
+        event.preventDefault();
+        try{
+            const response = await Axios.post(
+                "http://127.0.0.1:8000/api/comments", {comment, post: `/api/posts/${comments.post}`})
+                .then(response => console.log(response.data));
+        }catch (error){
+            console.log(error.response)
+        }
+    }
+
 
     useEffect(() => {
         fetchPost(id)
-        console.log(post.title)
     }, [id])
 
 
@@ -51,15 +78,25 @@ const PostPage = (props) => {
                     <div className="card my-4">
                         <h5 className="card-header">Poster un commentaire:</h5>
                         <div className="card-body">
-                            <form >
+                            <form onSubmit={handleSubmit}>
                                 <Field
-                                    name="title"
+                                    name="content"
+                                    label="Commantaire"
                                     placeholder="votre commentaire"
+                                    value={comment.content}
+                                    onChange={handleChange}
+                                    error={errors.content}
                                 />
-
+                                <Field
+                                    name="createdAt"
+                                    label="Date"
+                                    placeholder=""
+                                    value={comment.createdAt}
+                                    onChange={handleChange}
+                                    error={errors.content}
+                                />
                                 <div className="form-group ">
                                     <button type="submit" className="btn btn-success">Eregistrer</button>
-                                    <Link to="/admin" className="btn">Retour a la liste des articles</Link>
                                 </div>
                             </form>
                         </div>
@@ -78,7 +115,7 @@ const PostPage = (props) => {
                     )}
 
 
-            </div>
+                </div>
             </article>
 
         </Fragment>

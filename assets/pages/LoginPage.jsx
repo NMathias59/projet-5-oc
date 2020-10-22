@@ -28,6 +28,7 @@ const LoginPage = ( {history}) => {
 
     const handleSubmit = async event => {
         event.preventDefault();
+
         try {
             await AuthAPI.authenticate(credentials);
             setError("");
