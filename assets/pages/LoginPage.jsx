@@ -3,6 +3,7 @@ import Axios from "axios";
 import Header from "../components/Header";
 import AuthAPI from "../services/AuthAPI";
 import AuthContext from "../contexts/AuthContext";
+import {toast} from "react-toastify";
 
 
 const LoginPage = ( {history}) => {
@@ -32,12 +33,10 @@ const LoginPage = ( {history}) => {
         try {
             await AuthAPI.authenticate(credentials);
             setError("");
-            onLogin(true)
-            history.replace("/admin")
+            history.push("/#")
             setIsAuthenticated(true);
-
+            toast.success("connection reussit")
         } catch (error) {
-            console.log(error.response)
             setError("indentifiants invalid");
         }
     }

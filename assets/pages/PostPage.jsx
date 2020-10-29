@@ -1,31 +1,28 @@
-import React, {Fragment, useEffect, useState} from 'react';
-import Header from "../components/Header";
+import React, {Fragment, useContext, useEffect, useState} from 'react';
 import Axios from "axios";
+import AuthContext from "../contexts/AuthContext";
 import Field from "../components/form/Field";
+import Header from "../components/Header";
+import {toast} from "react-toastify";
 
 
 const PostPage = (props) => {
 
+    const {isAuthenticated, setIsAuthenticated} = useContext(
+        AuthContext
+    )
+
     const {id} = props.match.params
-
-    const formatDate = (str) => moment(str).format('DD/MM/YYYY');
-
-    console.log(id)
-
     const [post, setPost] = useState([])
-    const [comments, setComments] = useState([
-
-    ])
+    const [comments, setComments] = useState([])
     const [comment, setComment] = useState({
         "content": "",
-        "createdAt": "",
-        "repport": true
+        "repport": true,
+        "post": "api/posts/" + id
     })
-
     const [errors, setErrors] = useState({
         "content": ""
     })
-
     const fetchPost = async id => {
         try {
             const data = await Axios
@@ -37,7 +34,7 @@ const PostPage = (props) => {
             setPost({author, content, createdAt, title});
             setComments(comments);
         } catch (error) {
-            console.log(error.response)
+            window.alert(error.response)
         }
     }
 
@@ -46,15 +43,15 @@ const PostPage = (props) => {
         const name = event.currentTarget.name;
         setComment({...comment, [name]: value});
     }
-
-    const handleSubmit= async event =>{
+    const handleSubmit = async event => {
         event.preventDefault();
-        try{
+        try {
             const response = await Axios.post(
-                "http://127.0.0.1:8000/api/comments", {comment, post: `/api/posts/${comments.post}`})
+                "http://127.0.0.1:8000/api/comments", comment)
                 .then(response => console.log(response.data));
-        }catch (error){
-            console.log(error.response)
+                toast.success("commentaire poster");
+        } catch (error) {
+            console.log(error.response.data)
         }
     }
 
@@ -68,53 +65,52 @@ const PostPage = (props) => {
         <Fragment>
             <Header name={post.title} author={post.author}/>
             <article>
-                <div className="row">
-                    <div className="col-lg-8 col-md-10 mx-auto">
-                        <p>{post.content}</p>
-                    </div>
-                </div>
-
                 <div className="container">
-                    <div className="card my-4">
-                        <h5 className="card-header">Poster un commentaire:</h5>
-                        <div className="card-body">
-                            <form onSubmit={handleSubmit}>
-                                <Field
-                                    name="content"
-                                    label="Commantaire"
-                                    placeholder="votre commentaire"
-                                    value={comment.content}
-                                    onChange={handleChange}
-                                    error={errors.content}
-                                />
-                                <Field
-                                    name="createdAt"
-                                    label="Date"
-                                    placeholder=""
-                                    value={comment.createdAt}
-                                    onChange={handleChange}
-                                    error={errors.content}
-                                />
-                                <div className="form-group ">
-                                    <button type="submit" className="btn btn-success">Eregistrer</button>
-                                </div>
-                            </form>
+                    <div className="card">
+                        <div className="row">
+                            <div className=" col-md-10 mx-auto">
+                                <p>{post.content}</p>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <br/>
+                < div className="container">
+                    {isAuthenticated && (
+                        <div className="card my-4">
+                            <h5 className="card-header">Poster un commentaire:</h5>
+                            <div className="card-body">
+                                <form onSubmit={handleSubmit}>
+                                    <Field
+                                        name="content"
+                                        label="Commantaire"
+                                        placeholder="votre commentaire"
+                                        value={comment.content}
+                                        onChange={handleChange}
+                                        error={errors.content}
+                                    />
+                                    <div className="form-group ">
+                                        <button type="submit" className="btn btn-success">Eregistrer</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 
+                    ) || (
+                        <div className="card my-4">
+                            <h5 className="card-header">Veuiller vous connectez pour poster un commentaire:</h5>
+                        </div>
+                    )}
 
                     {comments.map(comment =>
                         <div key={comment.id} className="media mb-4">
                             <div className="media-body">
                                 <h5 className="mt-0">{comment.user.name}</h5>
                                 <p>{comment.content}</p>
-                                <button className="btn btn-secondary">signaler</button>
                                 <hr/>
                             </div>
                         </div>
                     )}
-
-
                 </div>
             </article>
 

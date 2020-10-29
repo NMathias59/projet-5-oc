@@ -1,12 +1,19 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment, useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import Axios from "axios";
 import {NavLink} from "react-router-dom";
 import NavbarAdmin from "../components/NavabarAdmin";
 import Header from "../components/Header";
+import AuthAPI from "../services/AuthAPI";
+import StatuUser from "../services/StatuUser";
+import AuthContext from "../contexts/AuthContext";
 
-const AdminListPosts = () => {
+const AdminListPosts = ({history}) => {
 
+    const token = window.localStorage.getItem("authToken")
+    const {isAuthenticated, setIsAuthenticated} = useContext(
+        AuthContext
+    )
     const [posts, setPosts] = useState([]);
     const [errors, setErrors] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -15,29 +22,36 @@ const AdminListPosts = () => {
     const itemsPerPage = 10;
     const pagesCount = Math.ceil(posts.length / itemsPerPage);
     const pages = [];
-
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
 
     const formatDate = (str) => moment(str).format('DD/MM/YYYY');
     const start = currentPage * itemsPerPage - itemsPerPage;
-
     const filteredPosts = posts.filter(p =>
         p.title.toLowerCase().includes(search.toLowerCase()) ||
         p.author.name.toLowerCase().includes(search.toLowerCase()) ||
         p.createdAt.toLowerCase().includes(search.toLowerCase())
     )
-
     const paginatedPosts = filteredPosts.slice(start, start + itemsPerPage);
 
-    useEffect(() => {
-        const data = Axios
-            .get("http://127.0.0.1:8000/api/posts")
-            .then(response => response.data["hydra:member"])
-            .then(data => setPosts(data))
-    }, []);
+    const tokenCheck = () => {
+        const tokenD = AuthAPI.decryptAdmin(token)
+        const tokenR = tokenD.roles
+        if (StatuUser.StatuRole(tokenR) === true) {
+            const data = Axios
+                .get("http://127.0.0.1:8000/api/posts")
+                .then(response => response.data["hydra:member"])
+                .then(data => setPosts(data))
+            } else {
+            window.alert("vous n'est pas atauriser a etre dans la partie admin")
+            history.replace("/")
+            }
+    }
 
+    useEffect(() => {
+        tokenCheck()
+    }, []);
 
 
     const handlePageChange = (page) => {
@@ -49,14 +63,15 @@ const AdminListPosts = () => {
         setSearch(value);
     }
 
-    const handleDelete =  async id => {
-
-       try {
-           await Axios.delete("http://127.0.0.1:8000/api/posts/" + id)
-               .then(response => console.log(response))
-       }catch (error){
-           console.log(error.response)
-       }
+    const handleDelete = async id => {
+        try {
+            const originalPostsList = [...posts]
+            setPosts(posts.filter(posts => posts.id !== id))
+            await Axios.delete("http://127.0.0.1:8000/api/posts/" + id)
+                .then(response => console.log(response))
+        } catch (error) {
+            console.log(error.response)
+        }
     }
 
 

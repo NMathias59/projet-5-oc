@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import Header from "../components/Header";
 import Field from "../components/form/Field";
 import Axios from "axios";
+import {toast} from "react-toastify";
 
 
 
@@ -32,7 +33,7 @@ const SignInPage = props => {
         event.preventDefault();
         try {
             const response = await Axios.post("http://127.0.0.1:8000/api/users", user);
-            window.alert("enregistrement reussit")
+            toast.success("enregistrement reussit")
             props.history.replace("/#")
         }catch (error){
             console.log(error.response)

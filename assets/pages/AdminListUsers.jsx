@@ -3,8 +3,12 @@ import Axios from "axios";
 import Header from "../components/Header";
 import NavbarAdmin from "../components/NavabarAdmin";
 import {Link, NavLink} from "react-router-dom";
+import AuthAPI from "../services/AuthAPI";
+import StatuUser from "../services/StatuUser";
 
-const AdminListUsers = () => {
+const AdminListUsers = ({history}) => {
+
+    const token = window.localStorage.getItem("authToken");
 
     const [users, setUsers] = useState([]);
     const [errors, setErrors] = useState([]);
@@ -29,12 +33,18 @@ const AdminListUsers = () => {
     const paginatedUsers = filteredUsers.slice(start, start + itemsPerPage);
 
     useEffect(() => {
-        const data = Axios
-            .get("http://127.0.0.1:8000/api/users")
-            .then(response => response.data["hydra:member"])
-            .then(data => setUsers(data))
+        const tokenD = AuthAPI.decryptAdmin(token)
+        const tokenR = tokenD.roles
+        if (StatuUser.StatuRole(tokenR) == true) {
+            const data = Axios
+                .get("http://127.0.0.1:8000/api/users")
+                .then(response => response.data["hydra:member"])
+                .then(data => setUsers(data))
+        }else {
+            window.alert("vous n'est pas atauriser a etre dans la partie admin")
+            history.push("/#")
+        }
     }, []);
-
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
@@ -45,9 +55,16 @@ const AdminListUsers = () => {
         setSearch(value);
     }
 
-    const handleDelete = id => {
-        Axios.delete("http://127.0.0.1:8000/api/users/" + id)
-            .then(response => console.log(response))
+    const handleDelete = async id => {
+        try {
+            const originalUsersList = [...users]
+            setUsers(users.filter(user => user.id !== id))
+            Axios.delete("http://127.0.0.1:8000/api/users/" + id)
+                .then(response => console.log(response));
+        }catch (error){
+            setUsers(originalUsersList);
+        }
+
     }
 
 

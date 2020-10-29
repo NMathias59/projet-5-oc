@@ -2,8 +2,12 @@ import React, {Fragment, useEffect, useState} from 'react';
 import Axios from "axios";
 import Header from "../components/Header";
 import NavbarAdmin from "../components/NavabarAdmin";
+import AuthAPI from "../services/AuthAPI";
+import StatuUser from "../services/StatuUser";
 
-const AdminListComment = () => {
+const AdminListComment = ({history}) => {
+    const token = window.localStorage.getItem("authToken");
+
 
     const [comments, setComments] = useState([]);
     const [errors, setErrors] = useState([]);
@@ -28,10 +32,19 @@ const AdminListComment = () => {
     const paginatedComments = filteredComments.slice(start, start + itemsPerPage);
 
     useEffect(() => {
-        const data = Axios
-            .get("http://127.0.0.1:8000/api/comments")
-            .then(response => response.data["hydra:member"])
-            .then(data => setComments(data))
+
+
+        const tokenD = AuthAPI.decryptAdmin(token)
+        const tokenR = tokenD.roles
+        if (StatuUser.StatuRole(tokenR) == true) {
+            const data = Axios
+                .get("http://127.0.0.1:8000/api/comments")
+                .then(response => response.data["hydra:member"])
+                .then(data => setComments(data))
+        } else {
+            window.alert("vous n'est pas atauriser a etre dans la partie admin")
+            history.push("/#")
+        }
     }, []);
 
 
@@ -44,9 +57,15 @@ const AdminListComment = () => {
         setSearch(value);
     }
 
-    const handleDelete = id => {
-        Axios.delete("http://127.0.0.1:8000/api/comments/" + id)
-            .then(response => console.log(response))
+    const handleDelete = async id => {
+        try {
+            const originalCommentsList = [...comments]
+            setComments(comments.filter(comment => comment.id !== id))
+            await  Axios.delete("http://127.0.0.1:8000/api/comments/" + id)
+                .then(response => console.log(response))
+        }catch (error) {
+            setComments(originalCommentsList)
+        }
     }
 
 
@@ -79,7 +98,8 @@ const AdminListComment = () => {
                         <td>{comment.user.name}</td>
                         <td>{comment.content}</td>
                         <td>
-                            <button className="btn btn-danger" onClick={() => handleDelete(comment.id)}>Supprimer</button>
+                            <button className="btn btn-danger" onClick={() => handleDelete(comment.id)}>Supprimer
+                            </button>
                         </td>
                     </tr>)}
 

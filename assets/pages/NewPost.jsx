@@ -1,24 +1,40 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import Header from "../components/Header";
 import {Link} from "react-router-dom";
 import Field from "../components/form/Field";
 import Axios from "axios";
+import AuthAPI from "../services/AuthAPI";
+import StatuUser from "../services/StatuUser";
 
-const NewPost = (props) => {
+const NewPost = ({history}) => {
 
-    const [post,setPost] = useState({
+    const token = window.localStorage.getItem("authToken")
+
+    const [post, setPost] = useState({
         title: "",
         content: "",
-        createdAt:"",
-        category:""
-});
+        createdAt: "",
+        category: ""
+    });
 
     const [errors, setErrors] = useState({
         title: "",
         content: "",
-        createdAt:"",
-        category:""
+        createdAt: "",
+        category: ""
     })
+
+    useEffect(() => {
+
+        const tokenD = AuthAPI.decryptAdmin(token)
+        const tokenR = tokenD.roles
+        if (StatuUser.StatuRole(tokenR) == true) {
+
+        } else {
+            window.alert("vous n'est pas atauriser a etre dans la partie admin")
+            history.push("/")
+        }
+    }, []);
 
 
     const handleChange = ({currentTarget}) => {
@@ -29,10 +45,9 @@ const NewPost = (props) => {
     const handleSubmit = async event => {
         event.preventDefault();
         try {
-           const response = await Axios.post("http://127.0.0.1:8000/api/posts",  post)
+            await Axios.post("http://127.0.0.1:8000/api/posts", post)
             props.history.replace("/admin")
-
-        }catch (error){
+        } catch (error) {
             console.log(error.response)
         }
     }

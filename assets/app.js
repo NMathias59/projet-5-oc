@@ -9,6 +9,7 @@ import React, {Fragment, useState} from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter, Switch, Route, withRouter, Redirect} from "react-router-dom";
 
+
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 import HomePage from "./pages/HomePage";
@@ -26,6 +27,8 @@ import PrivateRoute from "./components/PrivateRoute";
 import AuthAPI from "./services/AuthAPI";
 import AuthContext from "./contexts/AuthContext";
 import SignInPage from "./pages/SignInPage";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 require("./styles/app.css")
@@ -48,7 +51,7 @@ const App = () => {
     return (
         <AuthContext.Provider value={contextValue}>
             <HashRouter>
-                <NavbarWithRouter />
+                <NavbarWithRouter/>
                 <main>
                     <Switch>
                         <PrivateRoute path="/admin/post/:id"  component={AdminUpdatePostPage}/>
@@ -67,6 +70,7 @@ const App = () => {
                 </main>
                 <Footer/>
             </HashRouter>
+            <ToastContainer />
         </AuthContext.Provider>
     )
 };

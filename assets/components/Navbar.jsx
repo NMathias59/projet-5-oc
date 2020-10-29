@@ -1,20 +1,43 @@
-import React, {Fragment, useContext} from 'react';
+import React, {Fragment, useContext, useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import AuthAPI from "../services/AuthAPI";
 import AuthContext from "../contexts/AuthContext";
+import StatuUser from "../services/StatuUser";
+import {toast} from "react-toastify";
 
 const Navbar = ({history}) => {
+    const token = window.localStorage.getItem("authToken")
 
     const {isAuthenticated, setIsAuthenticated} = useContext(
         AuthContext
     )
-
     const handleLogout = () => {
         AuthAPI.logout();
-        onLogout(false);
+        setIsAuthenticated(false);
+        toast.info("Vous êtes désormais déconnecté.")
         history.push("/#")
     }
+    const [role, setRole] = useState({
+        "roles":""
+    })
+    useEffect(() => {
+        if (!isAuthenticated){
 
+        }else{
+            setRole(AuthAPI.decryptAdmin(token))
+            StatuUser.StatuRole(role.roles)
+        }
+
+    }, []);
+
+    const handleAdmin = () =>{
+        if (StatuUser.StatuRole(role.roles) == true){
+            toast.info("accee a la partie admin")
+            history.push("/admin")
+        }else {
+            toast.dismiss("vous n'est pas atauriser a etre dans la partie admin")
+        }
+    }
 
     return (
         <div>
@@ -49,14 +72,17 @@ const Navbar = ({history}) => {
                             )) || (
                                 <Fragment>
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" to="/admin">Administration </NavLink>
-                                    </li>
-                                    <li className="nav-item">
                                         <button onClick={handleLogout} className="btn btn-danger">Logout</button>
                                     </li>
                                 </Fragment>
                             )}
-
+                            {(StatuUser.StatuRole(role.roles) == true && (
+                                <Fragment>
+                                    <li className="nav-item">
+                                        <button className="nav-link btn btn-primary" onClick={handleAdmin} >Administration </button>
+                                    </li>
+                                </Fragment>
+                            ))}
 
                         </ul>
                     </div>

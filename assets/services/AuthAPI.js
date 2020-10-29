@@ -45,10 +45,15 @@ function isAuthenticated() {
     return false
 }
 
+function decryptAdmin(token) {
+    return JSON.parse(atob(token.split('.')[1]));
+}
+
 
 export default {
     authenticate,
     logout,
     setup,
-    isAuthenticated
+    isAuthenticated,
+    decryptAdmin
 }

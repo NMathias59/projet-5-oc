@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CommentRepository::class)
- * @ApiResource(normalizationContext={"groups"={"Comment_read"}})
+ * @ApiResource(normalizationContext={"groups"={"Comment_read"}}, denormalizationContext={"groups"={"Comment_read"}})
  */
 class Comment
 {
@@ -25,7 +25,8 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="comments")
-     * @Groups({"Comment_read"})
+     * @ORM\JoinColumn(nullable=false)
+     * @Groups({"Comment_read","Post_read"})
      *
      */
     private $post;

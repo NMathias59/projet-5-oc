@@ -27,15 +27,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81c721f1-b075-4b70-9a46-391b394b56cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Events/CommentUserPost.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Events/PasswordEncoderSubscriber.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/services/StatuUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/form/Field.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/form/Field.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/contexts/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/contexts/AuthContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/AdminListComments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/AdminListComments.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/AdminListPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/AdminListPosts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/AdminListUsers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/AdminListUsers.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/pages/AdminUpdatePostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/AdminUpdatePostPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/LoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/NewPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/NewPost.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/pages/PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/PostPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/SignInPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/SignInPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/services/AuthAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/services/AuthAPI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
     </list>
@@ -186,21 +196,22 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\BBBOU\Sites\projet-5-oc" />
-      <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets" />
-      <recent name="C:\Users\BBBOU\Sites\projet-5-oc\public\img" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\BBBOU\Sites\projet-5-oc\config" />
       <recent name="C:\Users\BBBOU\Sites\projet-5-oc" />
       <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets\components" />
       <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets" />
       <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets\pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\BBBOU\Sites\projet-5-oc" />
+      <recent name="C:\Users\BBBOU\Sites\projet-5-oc\assets" />
+      <recent name="C:\Users\BBBOU\Sites\projet-5-oc\public\img" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -220,7 +231,12 @@
       <workItem from="1602942597101" duration="521000" />
       <workItem from="1603101515144" duration="19050000" />
       <workItem from="1603299246561" duration="2327000" />
-      <workItem from="1603356444815" duration="1728000" />
+      <workItem from="1603356444815" duration="9127000" />
+      <workItem from="1603444564502" duration="21124000" />
+      <workItem from="1603703811859" duration="9306000" />
+      <workItem from="1603877720664" duration="990000" />
+      <workItem from="1603889712158" duration="4134000" />
+      <workItem from="1603977615464" duration="5109000" />
     </task>
     <servers />
   </component>
@@ -252,6 +268,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="586" y="198" key="#Inspections" timestamp="1603467300433">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="198" key="#Inspections/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603467300433" />
     <state x="649" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602096579520">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -265,17 +285,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="255" key="IDE.errors.dialog/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602084550045" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1603878250766">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603878250766" />
     <state x="570" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602689091616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="570" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602689091616" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1602595821209">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1603710531064">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1602595821209" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603300173660">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603710531064" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603466552876">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603300173660" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2560.0.2560.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603466552876" />
   </component>
 </project>

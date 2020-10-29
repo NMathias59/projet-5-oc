@@ -4,18 +4,19 @@ import Axios from "axios";
 import {Link} from "react-router-dom";
 import Field from "../components/form/Field";
 import Header from "../components/Header";
+import AuthAPI from "../services/AuthAPI";
+import StatuUser from "../services/StatuUser";
 
-const AdminUpdatePostPage = (props) => {
+const AdminUpdatePostPage = (props, {history}) => {
+    const token = window.localStorage.getItem("authToken")
 
     const {id} = props.match.params
-
     const [post, setPost] = useState({
         "title": "",
         "content": "",
         "createdAt": "",
         "category": ""
     })
-
     const [errors, setErrors] = useState({
         "title": "",
         "content": "",
@@ -37,7 +38,15 @@ const AdminUpdatePostPage = (props) => {
 
 
     useEffect(() => {
-        fetchPost(id)
+
+        const tokenD = AuthAPI.decryptAdmin(token)
+        const tokenR = tokenD.roles
+        if (StatuUser.StatuRole(tokenR) == true) {
+            fetchPost(id)
+        } else {
+            window.alert("vous n'est pas atauriser a etre dans la partie admin")
+            history.push("/#")
+        }
     }, [id])
 
     const handleChange = ({currentTarget}) => {
@@ -52,7 +61,7 @@ const AdminUpdatePostPage = (props) => {
                 "http://127.0.0.1:8000/api/posts/" + id, post)
             window.alert("modifications reussites")
             props.history.replace("/admin")
-        }catch (error){
+        } catch (error) {
             console.log(error.response)
         }
     }
