@@ -6,6 +6,8 @@ import Field from "../components/form/Field";
 import Header from "../components/Header";
 import AuthAPI from "../services/AuthAPI";
 import StatuUser from "../services/StatuUser";
+import PostAPI from "../services/PostAPI";
+import {toast} from "react-toastify";
 
 const AdminUpdatePostPage = (props, {history}) => {
     const token = window.localStorage.getItem("authToken")
@@ -26,13 +28,12 @@ const AdminUpdatePostPage = (props, {history}) => {
 
     const fetchPost = async id => {
         try {
-            const data = await Axios
-                .get("http://127.0.0.1:8000/api/posts/" + id)
+            const data = await PostAPI.fetchPost(id)
                 .then(response => response.data);
             const {content, createdAt, title, category} = data;
             setPost({content, createdAt, title, category});
         } catch (error) {
-            console.log(error.response)
+
         }
     }
 
@@ -57,12 +58,11 @@ const AdminUpdatePostPage = (props, {history}) => {
     const handleSubmit = async event => {
         event.preventDefault();
         try {
-            const response = await Axios.put(
-                "http://127.0.0.1:8000/api/posts/" + id, post)
-            window.alert("modifications reussites")
+            await PostAPI.updatePost(id, post)
+            toast.success("modifications reussitte")
             props.history.replace("/admin")
         } catch (error) {
-            console.log(error.response)
+            toast.error("erreur lors de la modification")
         }
     }
 

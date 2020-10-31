@@ -4,8 +4,10 @@ import Header from "../components/Header";
 import NavbarAdmin from "../components/NavabarAdmin";
 import AuthAPI from "../services/AuthAPI";
 import StatuUser from "../services/StatuUser";
+import CommentAPI from "../services/CommentAPI";
 
 const AdminListComment = ({history}) => {
+
     const token = window.localStorage.getItem("authToken");
 
 
@@ -37,9 +39,7 @@ const AdminListComment = ({history}) => {
         const tokenD = AuthAPI.decryptAdmin(token)
         const tokenR = tokenD.roles
         if (StatuUser.StatuRole(tokenR) == true) {
-            const data = Axios
-                .get("http://127.0.0.1:8000/api/comments")
-                .then(response => response.data["hydra:member"])
+            CommentAPI.findAll()
                 .then(data => setComments(data))
         } else {
             window.alert("vous n'est pas atauriser a etre dans la partie admin")
@@ -57,12 +57,11 @@ const AdminListComment = ({history}) => {
         setSearch(value);
     }
 
-    const handleDelete = async id => {
+    const handleDelete = async (id) => {
         try {
             const originalCommentsList = [...comments]
             setComments(comments.filter(comment => comment.id !== id))
-            await  Axios.delete("http://127.0.0.1:8000/api/comments/" + id)
-                .then(response => console.log(response))
+            await  CommentAPI.deleteComment(id)
         }catch (error) {
             setComments(originalCommentsList)
         }

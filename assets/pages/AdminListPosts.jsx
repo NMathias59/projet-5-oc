@@ -7,6 +7,8 @@ import Header from "../components/Header";
 import AuthAPI from "../services/AuthAPI";
 import StatuUser from "../services/StatuUser";
 import AuthContext from "../contexts/AuthContext";
+import PostAPI from "../services/PostAPI";
+import {toast} from "react-toastify";
 
 const AdminListPosts = ({history}) => {
 
@@ -27,6 +29,7 @@ const AdminListPosts = ({history}) => {
     }
 
     const formatDate = (str) => moment(str).format('DD/MM/YYYY');
+
     const start = currentPage * itemsPerPage - itemsPerPage;
     const filteredPosts = posts.filter(p =>
         p.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -39,12 +42,10 @@ const AdminListPosts = ({history}) => {
         const tokenD = AuthAPI.decryptAdmin(token)
         const tokenR = tokenD.roles
         if (StatuUser.StatuRole(tokenR) === true) {
-            const data = Axios
-                .get("http://127.0.0.1:8000/api/posts")
-                .then(response => response.data["hydra:member"])
+               PostAPI.findAll()
                 .then(data => setPosts(data))
             } else {
-            window.alert("vous n'est pas atauriser a etre dans la partie admin")
+            toast.error("acces interdit")
             history.replace("/")
             }
     }
@@ -63,14 +64,14 @@ const AdminListPosts = ({history}) => {
         setSearch(value);
     }
 
-    const handleDelete = async id => {
+    const handleDelete = async (id) => {
         try {
             const originalPostsList = [...posts]
+            await PostAPI.deletePost(id)
             setPosts(posts.filter(posts => posts.id !== id))
-            await Axios.delete("http://127.0.0.1:8000/api/posts/" + id)
-                .then(response => console.log(response))
+            toast.success("article suprimer")
         } catch (error) {
-            console.log(error.response)
+           toast.error("erreur lors de la supression")
         }
     }
 
@@ -95,7 +96,7 @@ const AdminListPosts = ({history}) => {
                         <th>Date:</th>
                         <th>Auteur:</th>
                         <th>Titre:</th>
-                        <th>Contenue:</th>
+                        <th>Contenu:</th>
 
                     </tr>
                     </thead>

@@ -9,7 +9,7 @@ const NavbarAdmin = () => {
                 <Link to="/admin" className="btn btn-group">Articles</Link>
                 <Link to="/admin/users" className="btn btn-group">Utilisateurs</Link>
                 <Link to="/admin/comment" className="btn btn-group">Commentaires</Link>
-                <Link to="/admin/newPost" className="btn-primary btn-group">Nouveau article</Link>
+                <Link to="/admin/newPost" className="btn-primary btn-group">Nouvel article</Link>
 
             </nav>
 

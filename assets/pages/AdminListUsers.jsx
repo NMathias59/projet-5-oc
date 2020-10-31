@@ -5,6 +5,8 @@ import NavbarAdmin from "../components/NavabarAdmin";
 import {Link, NavLink} from "react-router-dom";
 import AuthAPI from "../services/AuthAPI";
 import StatuUser from "../services/StatuUser";
+import UserAPI from "../services/UserAPI";
+import {toast} from "react-toastify";
 
 const AdminListUsers = ({history}) => {
 
@@ -36,9 +38,7 @@ const AdminListUsers = ({history}) => {
         const tokenD = AuthAPI.decryptAdmin(token)
         const tokenR = tokenD.roles
         if (StatuUser.StatuRole(tokenR) == true) {
-            const data = Axios
-                .get("http://127.0.0.1:8000/api/users")
-                .then(response => response.data["hydra:member"])
+            const data = UserAPI.findAll()
                 .then(data => setUsers(data))
         }else {
             window.alert("vous n'est pas atauriser a etre dans la partie admin")
@@ -56,12 +56,12 @@ const AdminListUsers = ({history}) => {
     }
 
     const handleDelete = async id => {
+        const originalUsersList = [...users]
         try {
-            const originalUsersList = [...users]
             setUsers(users.filter(user => user.id !== id))
-            Axios.delete("http://127.0.0.1:8000/api/users/" + id)
-                .then(response => console.log(response));
+            await UserAPI.deleteUser(id)
         }catch (error){
+            toast.error("erreur lors de la supression")
             setUsers(originalUsersList);
         }
 

@@ -5,6 +5,8 @@ import Field from "../components/form/Field";
 import Axios from "axios";
 import AuthAPI from "../services/AuthAPI";
 import StatuUser from "../services/StatuUser";
+import {toast} from "react-toastify";
+import PostAPI from "../services/PostAPI";
 
 const NewPost = ({history}) => {
 
@@ -20,8 +22,8 @@ const NewPost = ({history}) => {
     const [errors, setErrors] = useState({
         title: "",
         content: "",
-        createdAt: "",
-        category: ""
+        createdAt: "veuillez ajouter une categorie",
+        category: "veuillez ajouter une categorie"
     })
 
     useEffect(() => {
@@ -42,13 +44,21 @@ const NewPost = ({history}) => {
         setPost({...post, [name]: value})
     }
 
-    const handleSubmit = async event => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await Axios.post("http://127.0.0.1:8000/api/posts", post)
-            props.history.replace("/admin")
-        } catch (error) {
-            console.log(error.response)
+            await PostAPI.newPost(post)
+            toast.success("article poster")
+            history.replace("/admin")
+        } catch ({response}) {
+            const {violations} = response.data;
+            if (violations) {
+                const apiErrors = {};
+                violations.forEach(({propertyPath, message}) => {
+                    apiErrors[propertyPath] = message;
+                });
+                setErrors(apiErrors);
+            }
         }
     }
 

@@ -4,6 +4,8 @@ import AuthContext from "../contexts/AuthContext";
 import Field from "../components/form/Field";
 import Header from "../components/Header";
 import {toast} from "react-toastify";
+import PostAPI from "../services/PostAPI";
+import CommentAPI from "../services/CommentAPI";
 
 
 const PostPage = (props) => {
@@ -11,7 +13,6 @@ const PostPage = (props) => {
     const {isAuthenticated, setIsAuthenticated} = useContext(
         AuthContext
     )
-
     const {id} = props.match.params
     const [post, setPost] = useState([])
     const [comments, setComments] = useState([])
@@ -23,18 +24,16 @@ const PostPage = (props) => {
     const [errors, setErrors] = useState({
         "content": ""
     })
-    const fetchPost = async id => {
+    const postID = async id => {
         try {
-            const data = await Axios
-                .get("http://127.0.0.1:8000/api/posts/" + id)
+            const data = await PostAPI.fetchPost(id)
                 .then(response => response.data);
-            console.log(data)
             const {author, content, createdAt, title} = data;
             const {comments} = data
             setPost({author, content, createdAt, title});
             setComments(comments);
         } catch (error) {
-            window.alert(error.response)
+            toast.error("erreur de chargement des articles")
         }
     }
 
@@ -46,18 +45,16 @@ const PostPage = (props) => {
     const handleSubmit = async event => {
         event.preventDefault();
         try {
-            const response = await Axios.post(
-                "http://127.0.0.1:8000/api/comments", comment)
-                .then(response => console.log(response.data));
-                toast.success("commentaire poster");
+            await CommentAPI.PostComment(comment)
+            toast.success("commentaire poster");
+            document.location.reload(true)
         } catch (error) {
-            console.log(error.response.data)
+            toast.error("Erreur lors de l'envoi");
         }
     }
 
-
     useEffect(() => {
-        fetchPost(id)
+        postID(id)
     }, [id])
 
 
@@ -107,6 +104,7 @@ const PostPage = (props) => {
                             <div className="media-body">
                                 <h5 className="mt-0">{comment.user.name}</h5>
                                 <p>{comment.content}</p>
+                                <span>{comment.createdAt}</span>
                                 <hr/>
                             </div>
                         </div>
