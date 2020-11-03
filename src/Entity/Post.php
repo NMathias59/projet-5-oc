@@ -66,8 +66,8 @@ class Post
     private $author;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="post")
-     * @Groups({"Post_read", "Comment_read"})
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="post", orphanRemoval=true)
+     * @Groups({"Post_read"})
      */
     private $comments;
 

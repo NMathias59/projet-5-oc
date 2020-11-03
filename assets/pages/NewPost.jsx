@@ -15,7 +15,6 @@ const NewPost = ({history}) => {
     const [post, setPost] = useState({
         title: "",
         content: "",
-        createdAt: "",
         category: ""
     });
 

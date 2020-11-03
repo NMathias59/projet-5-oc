@@ -13,6 +13,7 @@ import {toast} from "react-toastify";
 const AdminListPosts = ({history}) => {
 
     const token = window.localStorage.getItem("authToken")
+
     const {isAuthenticated, setIsAuthenticated} = useContext(
         AuthContext
     )

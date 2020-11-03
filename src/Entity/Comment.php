@@ -24,9 +24,9 @@ class Comment
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="comments", cascade={"remove"})
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"Comment_read","Post_read"})
+     * @Groups({"Comment_read"})
      *
      */
     private $post;

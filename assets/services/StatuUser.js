@@ -1,14 +1,7 @@
-
-
 const token = window.localStorage.getItem("authToken")
 
 function StatuRole(role) {
-    if ( JSON.stringify(role) != JSON.stringify(["ROLE_ADMIN", "ROLE_USER"]))
-    {
-        return false
-    }else {
-        return true
-    }
+    return role.includes("ROLE_ADMIN")
 }
 
 export default {

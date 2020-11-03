@@ -27,20 +27,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81c721f1-b075-4b70-9a46-391b394b56cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/services/CommentAPI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/services/PostAPI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/services/UserAPI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/projet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projet.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/NavabarAdmin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/NavabarAdmin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/PostHomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/PostHomePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/AdminListComments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/AdminListComments.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/home-bg.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/pages/AdminListPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/AdminListPosts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/AdminListUsers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/AdminListUsers.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/AdminUpdatePostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/AdminUpdatePostPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/pages/NewPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/NewPost.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/PostPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/PostPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/services/StatuUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/services/StatuUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +171,7 @@
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gxMToYiz544jCUclVwqHqQ86dI" />
@@ -230,7 +231,9 @@
       <workItem from="1603877720664" duration="990000" />
       <workItem from="1603889712158" duration="4134000" />
       <workItem from="1603977615464" duration="5225000" />
-      <workItem from="1604137387982" duration="11928000" />
+      <workItem from="1604137387982" duration="12069000" />
+      <workItem from="1604310159670" duration="782000" />
+      <workItem from="1604426538295" duration="2570000" />
     </task>
     <servers />
   </component>
