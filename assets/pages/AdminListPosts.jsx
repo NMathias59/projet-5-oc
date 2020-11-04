@@ -70,9 +70,9 @@ const AdminListPosts = ({history}) => {
             const originalPostsList = [...posts]
             await PostAPI.deletePost(id)
             setPosts(posts.filter(posts => posts.id !== id))
-            toast.success("article suprimer")
+            toast.success("article supprimer")
         } catch (error) {
-           toast.error("erreur lors de la supression")
+           toast.error("erreur lors de la suppression")
         }
     }
 

@@ -81,14 +81,6 @@ const NewPost = ({history}) => {
                                onChange={handleChange}
                                error={errors.content}
                         />
-
-                        <Field name="createdAt"
-                               label="Date"
-                               placeholder="Date"
-                               value={post.createdAt}
-                               onChange={handleChange}
-                               error={errors.createdAt}
-                        />
                         <Field name="category"
                                label="Categorie"
                                placeholder="Categories"

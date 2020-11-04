@@ -5,6 +5,7 @@ import NavbarAdmin from "../components/NavabarAdmin";
 import AuthAPI from "../services/AuthAPI";
 import StatuUser from "../services/StatuUser";
 import CommentAPI from "../services/CommentAPI";
+import {toast} from "react-toastify";
 
 const AdminListComment = ({history}) => {
 
@@ -62,8 +63,10 @@ const AdminListComment = ({history}) => {
             const originalCommentsList = [...comments]
             setComments(comments.filter(comment => comment.id !== id))
             await  CommentAPI.deleteComment(id)
+            toast.success("commentaire supprimer")
         }catch (error) {
             setComments(originalCommentsList)
+            toast.success("erreur lors de la  suppression")
         }
     }
 

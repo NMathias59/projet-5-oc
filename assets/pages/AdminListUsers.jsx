@@ -60,8 +60,9 @@ const AdminListUsers = ({history}) => {
         try {
             setUsers(users.filter(user => user.id !== id))
             await UserAPI.deleteUser(id)
+            toast.success("utilisateur supprimer")
         }catch (error){
-            toast.error("erreur lors de la supression")
+            toast.error("erreur lors de la suppression")
             setUsers(originalUsersList);
         }
 
